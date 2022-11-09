@@ -1,6 +1,6 @@
+const axios = require('axios')
 const express = require('express')
 const bodyParser = require('body-parser');
-const cloudflareScraper =  require('cloudflare-scraper');
 
 const app = express()
 app.use(bodyParser.json());
@@ -10,7 +10,7 @@ app.all('/', (req, res) => {
 })
 app.post('/scraper', async (req, res) => {
     const destUrl = req.body.destUrl
-    const response = await cloudflareScraper.get(destUrl);
+    const response = await axios.get(destUrl);
     res.send(response)
 })
 
