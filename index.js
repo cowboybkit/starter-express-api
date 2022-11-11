@@ -6,7 +6,7 @@ const app = express()
 app.use(bodyParser.json());
 app.all('/', (req, res) => {
     console.log("Just got a request!")
-    res.send('Yo!')
+    res.send('Yo! Hello')
 })
 app.post('/scraper', async (req, res) => {
     const destUrl = req.body.destUrl
