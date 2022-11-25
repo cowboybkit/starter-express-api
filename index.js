@@ -10,8 +10,14 @@ app.all('/', (req, res) => {
 })
 app.post('/scraper', async (req, res) => {
     const destUrl = req.body.destUrl
-    const response = await cloudflareScraper.get(destUrl);
-    res.send(response)
+    console.log('destUrl', destUrl)
+    try {
+        const response = await cloudflareScraper.get(destUrl);
+        res.send(response)
+    } catch (error) {
+        res.send(error.toString())
+    }
+    
 })
 
 app.listen(process.env.PORT || 3000)
