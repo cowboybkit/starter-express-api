@@ -10,7 +10,7 @@ app.all('/', (req, res) => {
     res.send('Yo! Hello 123')
 })
 app.post('/scraper', async (req, res) => {
-    const destUrl = req.body
+    const destUrl = req.body.destUrl
     console.log('destUrl', destUrl)
     try {
         const response = await cloudflareScraper.get(destUrl);
